@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{height: 100%;}
+        body{margin:0}
+    </style>
+    <script type="text/javascript" src="http://www.1473.cn/uform.js"></script>
+    <script type="text/javascript" src="2.js"></script>
+</head>
+<body>
+<img src="https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=d569af264b10b912a0c1f0fef3fcfcb5/42a98226cffc1e1792fa64ac4690f603728de9e2.jpg" alt="" id="aa" style="opacity: 0; position: absolute;left: -1000px;">
+
+<script type="text/javascript">
+    
+    
+    clipPic(document.querySelector('#aa'),"1:2",function(dataUrl){
+        $$('img',{src:dataUrl},document.body);
+		console.log(showSize(dataUrl))
+    });
+
+</script>
+</body>
+</html>

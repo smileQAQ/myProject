@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            perspective: 800px;
+        }
+        .box{
+            position: relative;
+            width: 300px;
+            height: 500px;
+            margin: 0 auto;
+
+        }
+        .pai{
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
+        .pai,.z,.f{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .z{
+            background-color: red;
+            transform: translateZ(-1px) rotateY(180deg);
+        }
+        .f{
+            background-color: green;
+            transform: translateZ(1px) rotateY(180deg);
+        }
+        .box:hover .pai{
+            transform: rotateY(-180deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="pai">
+            <div class="z"></div>
+            <div class="f"></div>
+        </div>
+    </div>
+</body>
+</html>

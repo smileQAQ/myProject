@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            left: 0;
+        }
+        .box{
+            width: 210px;
+            height: 210px;
+            position: relative;
+            border-radius: 50%;
+            margin: 50px auto;
+        }
+        .spinner{
+            width: 210px;
+            height: 210px;
+            background-image: linear-gradient(orange 0,orange 50%,yellowgreen 50%,yellowgreen 100%);
+            border-radius: 50%;
+            transition: .5s ease-in;
+            transform: rotate(-45deg);
+        }
+        .pic{
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1;
+
+        }
+        .pic span{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-image: url("img/1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+        }
+        .mark{
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.6);
+            z-index: 2;
+            opacity: 0;
+            transition: .5s ease-in;
+        }
+        .info{
+            position: absolute;
+            width: 145px;
+            text-align: center;
+            left: 15%;
+            top: 30%;
+            color: #ffffff;
+            z-index: 3;
+            opacity: 0;
+            transition: .5s ease-in;
+        }
+        .info h3{
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+        }
+        .info p{
+            font-size: 12px;
+            padding-top: 10px;
+        }
+        .box:hover .spinner{
+            transform: rotate(135deg);
+        }
+        .box:hover .mark,.box:hover .info{
+            opacity: 1;
+        }
+
+        .box2mark{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            background-color: rgba(0,0,0,.6);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: .35s;
+            z-index: 2;
+            opacity: 0;
+        }
+        .box2-pic{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 20px rgba(255,255,255,.5);
+        }
+        .box2-pic span{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background-image: url("img/1.jpg");
+            background-size: cover;
+            background-position: center center;
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+            transition: .35s
+        }
+        .a:hover .box2mark{
+            left: 0;
+            opacity: 1;
+        }
+        .a:hover .box2-pic>span{
+            transform: rotate(-90deg);
+        }
+
+        .box3mark{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0,0,0,.8);
+            border-radius: 50%;
+            left: -100%;
+            top: 0;
+            z-index: 1;
+            transition: .35s;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .box3-pic{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 20px rgba(255,255,255,.5);
+            transition: .35s
+        }
+        .out{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            transition: .35s;
+            z-index: 2;
+        }
+        .box3-pic span{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+            background: url("img/1.jpg") center center /cover no-repeat;
+        }
+        .b:hover .out{
+
+            transform: translateX(50%) scale(0.6);
+        }
+        .b:hover .box3mark{
+            left: 0;
+            opacity: 1;
+        }
+
+        .box4mark{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0,0,0,.8);
+            border-radius: 50%;
+            left: 100%;
+            top: 0;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(.5);
+            transition: left .35s .35s, opacity .35s .35s, transform .35s .7s;
+        }
+        .info1{
+            position: absolute;
+            width: 145px;
+            text-align: center;
+            left: 15%;
+            top: 25%;
+            color: #ffffff;
+
+        }
+        .info1 h3{
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+        }
+        .info1 p{
+            font-size: 12px;
+            padding-top: 10px;
+        }
+        .box4-pic{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 20px rgba(255,255,255,.5);
+        }
+        .out1{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;top: 0;
+
+            transition: transform .35s, left .35s .35s, opacity .35s .35s;
+        }
+        .box4-pic span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;top: 0;
+            z-index: -1;
+            border-radius: 50%;
+            background: url("img/1.jpg") center center /cover no-repeat;
+        }
+        .c:hover .box4mark{
+            left: 0;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .c:hover .out1{
+            left: -100%;
+            opacity: 0;
+            transform: scale(.5);
+        }
+
+        .box5mark{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0,0,0,.8);
+            border-radius: 50%;
+            left: 0;top: 0;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(.5);
+            transition: .35s ;
+        }
+        .out2{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;left: 0;
+            border-radius: 50%;
+            transition: .35s .2s;
+        }
+        .d:hover .box5mark{
+            transition: .35s .2s;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .d:hover .out2{
+            transition: .35s;
+            transform: rotate(120deg);
+            left: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="spinner"></div>
+        <div class="mark"></div>
+        <div class="pic"><span></span></div>
+        <div class="info">
+            <h3>HEADING HERE</h3>
+            <p>Description goes here</p>
+        </div>
+    </div>
+    <div class="box a">
+        <div class="box2mark">
+            <div class="info">
+                <h3>HEADING HERE</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="box2-pic"><span></span></div>
+    </div>
+    <div class="box b">
+        <div class="box3mark">
+            <div class="info">
+                <h3>HEADING HERE</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="out">
+            <div class="box3-pic"><span></span></div>
+        </div>
+    </div>
+    <div class="box c">
+        <div class="box4mark">
+            <div class="info1">
+                <h3>HEADING HERE</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="out1">
+            <div class="box4-pic"><span></span></div>
+        </div>
+    </div>
+    <div class="box d">
+        <div class="box5mark">
+            <div class="info1">
+                <h3>HEADING HERE</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="out2">
+            <div class="box4-pic"><span></span></div>
+        </div>
+    </div>
+
+</body>
+</html>

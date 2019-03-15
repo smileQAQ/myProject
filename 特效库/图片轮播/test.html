@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style-type:none;
+			font-size: 0
+		}
+		.box{
+			width: 520px;
+			height: 285px;
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.box ul{
+			width: 500%;
+			height: 100%;
+			font-size:0;
+			position: absolute;
+			left:0;
+			top:0;
+
+		}
+		.box ul li{
+			display: inline-block;
+		}
+		.left{
+			position: absolute;
+			left: 0;
+			width: 50px;
+			height: 100%;
+			background-color: rgba(255,0,0,.5);
+		}
+		.right{
+			position: absolute;
+			right: 0;
+			width: 50px;
+			height: 100%;
+			background-color: rgba(0,255,0,.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li><img src="1.webp" alt=""></li>
+			<li><img src="2.jpg" alt=""></li>
+			<li><img src="3.jpg" alt=""></li>
+			<li><img src="4.jpg" alt=""></li>
+			<li><img src="5.webp" alt=""></li>
+		</ul>
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<script type="text/javascript">
+		var num=0;
+        var s =new Date();
+		var ul = document.querySelector('.box > ul');
+		var oLis = document.querySelectorAll('.box > ul li');
+
+		document.querySelector('.left').onclick = function(){
+            if(new Date()-s>500){
+                num = --num >= oLis.length-1 ? 0 : num;
+
+                if(num == -1){
+                    oLis[oLis.length-1].setAttribute('style','position:relative;left:-'+oLis.length*520+'px');
+                    moveSpeed(ul,{left:-520*num},function(){
+                        oLis[oLis.length-1].setAttribute('style','position:static');
+                        ul.setAttribute('style','left:-'+(oLis.length-1)*520+'px');
+                        num=oLis.length-1;
+                    });
+                }else{
+                    moveSpeed(ul,{left:-520*num});
+                }
+                s=new Date();
+            }
+		};
+
+		document.querySelector('.right').onclick = function(){
+		    if(new Date()-s>500){
+				num = ++num > oLis.length ? 0 : num;
+
+				if(num == oLis.length){
+					oLis[0].setAttribute('style','position:relative;left:'+oLis.length*520+'px');
+					moveSpeed(ul,{left:-520*num},function(){
+						oLis[0].setAttribute('style','position:static');
+						ul.setAttribute('style','left:0');
+						num=0;
+					});
+				}else{
+					moveSpeed(ul,{left:-520*num});
+				}
+                s=new Date();
+            }
+		};
+
+        function getCss(obj,attr){
+            return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+        }
+        function moveSpeed(obj,json,callback){
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function(){
+                var mark=true;
+                for(var attr in json){
+                    var cur=parseInt(getCss(obj,attr));
+                    var target=json[attr];
+                    var speed=(target-cur)*.2;
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                    if(cur!=target){
+                        obj.style[attr]=(cur+speed)+"px";
+                        mark=false;
+                    }
+                }
+                if(mark){
+                    clearInterval(obj.timer);
+                    callback&&callback();
+                }
+            },13);
+        }
+	</script>
+</body>
+</html>

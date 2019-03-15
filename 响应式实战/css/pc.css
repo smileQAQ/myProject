@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.main-content{
+    width: 1050px;
+}
+.main-row{
+    width: 33.33%;
+}
+
+.pic-c{
+    width: 25%;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0.5px solid #ffffff;
+}
+
+.dec-cen{
+    width: 1050px;
+}
+.dec-picCol{
+    width: 25%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 20px;
+}

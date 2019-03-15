@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.text-c{
+    padding: 0 55px;
+}
+.header-text h2{
+    font-size: 62px;
+}
+
+.main-row{
+    width: 50%;
+    float: left;
+    margin: 15px 0;
+    box-sizing: border-box;
+    display: block;
+}
+.main-content{
+    width: 750px;
+    margin: 0 auto;
+}
+.pic-c{
+    width: 49.8%;
+    float: left;
+    margin: 0 0 1px 1px;
+}
+
+
+.dec-cen{
+    width: 750px;
+    margin: 0 auto;
+}
+.dec-picCol{
+    width: 345px;
+    display: inline-block;
+    padding: 0;
+}
+
+
+
+.menu-icon-show{display: none;}
+.nav-show{display: block;}

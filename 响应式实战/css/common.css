@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+
+/*头部样式*/
+.header{
+    width: 90%;
+    padding: 40px 0;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    min-width: 236px;
+    transition:padding .3s;
+}
+.header-after{
+    width: 90%;
+    margin: 0 auto;
+    padding: 25px 0;
+    transition:padding .3s;
+}
+header{
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+nav{
+    float: right;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+}
+.fixed{
+    background-color: #292c47;
+}
+.head-content{
+    background-image: url(../img/banner.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 750px;
+}
+.menu-icon{
+    width: 44px;height: 44px;
+    display: block;
+    background: #e84545;
+    position: relative;
+    float: right;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-top: -10px;
+}
+.menu-icon .line{
+    position: absolute;
+    top: 32%;left: 28%;
+    width: 18px;height: 3px;
+    background: #fff;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    padding:3px 0;
+    background-clip: content-box;
+}
+.nav ul li{
+    display: inline-block;
+}
+.nav ul li a{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+.nav ul li:nth-child(1) a{
+    margin: 0 10px 0 0;
+}
+.header-text{
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    padding-top:180px;
+}
+.header-text h2{
+    font-size:32px;
+    padding: 0 1em;
+    line-height: 1.1;
+}
+.header-text p{
+    font-size: 18px;
+    padding: 1em 2em;
+    font-weight: 300;
+
+}
+.header-btn{
+    padding: 15px 40px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #e84545;
+    display: inline-block;
+    margin-top: 50px;
+}
+.header-btn:hover{
+    background-color: #e52e2e;
+    color: #ffffff;
+    transition: .3s;
+}
+
+/*第二层样式*/
+.main{
+    width: 100%;
+    margin-top: 80px;
+}
+.main-content{
+    width: 100%;
+}
+.main-row{
+    text-align: center;
+    margin: 30px 0;
+}
+.main-row h3{
+    font-weight: bold;
+    padding: .5em 0 ;
+}
+.main-row p{
+    font-family: "Raleway", sans-serif;
+    padding: 0 2em;
+}
+
+/*第三层样式*/
+.pic{
+    width: 100%;
+    margin-top: 80px;
+}
+.pic-content{
+    width: 100%;
+    height: 100%;
+}
+.pic-c{
+    width: 100%;
+    margin: 0 0 1px ;
+    overflow: hidden;
+    position: relative;
+}
+.pic-c:after{
+    content: attr(data-pic);
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: -1em;
+    position: absolute;
+    top: 50%;left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity .35s;
+}
+.pic-c:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 69, 69, 0.9);
+    position: absolute;
+    left: 0;top: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity .35s;
+}
+.pic-c img{
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    box-sizing: border-box;
+    transition: .35s
+}
+.pic-c:hover > a img{
+    transform: scale(1.2);
+}
+.pic-c:hover:before, .pic-c:hover:after{
+    opacity: 1;
+}
+
+/*第四层样式*/
+.dec{
+    position: relative;
+    width: 100%;
+}
+.dec-content{
+    padding: 100px 0;
+}
+.dec-picCol{
+    padding: 0 15px;
+
+}
+.person{
+    margin: 0 auto 50px;
+    max-width: 260px;
+    text-align: center;
+}
+.person img{
+    max-width: 100%;
+}
+.person h4{
+    font-size: 22px;
+    font-weight: lighter;
+    margin: 10px 0;
+}
+.person h5{
+    font-weight: lighter;
+    color: #e52e2e;
+    margin: 10px 0 20px;
+}
+.person p{
+    color: #6c7279;
+}
+.icon{
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+.icon a{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    border-radius: 4px;
+    transition: .35s
+}
+.icon a:hover{
+    background-color: #d43443;
+    color: #ffffff;
+}
+.dec-icon{
+    color: #c6cacc;
+    font-size: 14px;
+}
+
+/*第五层样式*/
+.testimonials{
+    position: relative;
+    background-color: #53354a;
+}
+.testimonials-pic{
+     width: 100%;
+     height: 100%;
+     display: inline-block;
+ }
+.testimonials-pd{
+    padding: 0 20px;
+}
+.testimonials-pic img{
+    width: 100%;
+}
+.testimonial-text{
+    padding-top: 5%;
+    color: #fff;
+}
+.testimonial-text p{
+    font: italic 24px "Cardo", Georgia, "Times New Roman", serif;
+    line-height: 1.5em;
+    font-weight: lighter;
+}
+.testimonial-text h4{
+    font-size: 13px;
+    margin-top: 30px;
+}
+.testimonial-nav{
+    width: 100%;
+    padding:30px 0;
+    text-align: center;
+}
+.testimonial-nav li{
+    display: inline-block;
+}
+.testimonial-nav a{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: rgba(255,255,255,.2);
+    margin: 0 3px;
+}
+.highlighter{
+    background-color: rgba(255,255,255,1) !important;
+}
+
+/*第六层样式*/
+.download{
+    position: relative;
+    padding: 100px 0;
+}
+.download-content{
+    margin: 0 20px;
+    text-align: center;
+}
+.download-text{
+
+}
+.download-text h3{
+    font-size: 28px;
+    line-height: 1em;
+}
+.download-text p{
+    margin-top: 20px;
+}
+.download-btn{
+    width: 100%;
+    margin-top: 40px;
+}
+.download-btn a{
+    padding: 15px 40px;
+    background-color: #e52e2e;
+    color: #ffffff;
+    display: inline-block;
+}
+
+/*最后层样式*/
+.footer-content{
+    background-color: #3a3e64;
+}
+.footer-top{
+    padding: 0 15px;
+    text-align: center;
+    color: #ffffff;
+}
+.col{
+    padding-top: 40px;
+}
+.footer-col{
+    margin-bottom: 50px;
+}
+.footer-col h3{
+    margin: 10px 0;
+}
+.footer-bottom{
+    background-color: #313454;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+.footer-b-text{
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+
+.nav-show{display: none;}
+.menu-icon-show{display: block}

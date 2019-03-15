@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body{
+    overflow-x: hidden;
+}
+.nav{
+    display: block;
+    position: static;
+    width: auto;
+    float: right;
+    margin-top:  24px;
+}
+.nav li{
+    float: left;
+    margin-left: 78px;
+}
+.nav li:nth-child(1){
+    margin-left: 0;
+}
+.u_showpic{
+    height: 484px;
+    transition: .2s;
+}
+.muen_btn{
+    padding-top: 20px;
+}
+
+.m_movie{
+    margin: 40px 40px 20px 40px;
+    transition: .2s;
+}
+.m_movie2{
+    width: 48%;
+    display: inline-block;
+    margin: 0 .7% 2%;
+}
+footer{
+    margin-top: 80px;
+}
+
+.m_2_black{
+    margin: 40px;
+}
+.big{
+    margin:0 -1% -1%;
+}
+
+
+.padhide{display: none;}
+.padshow{display: block;}
+.gWidth{padding-left: 40px;padding-right: 28px;}

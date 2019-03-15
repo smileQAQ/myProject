@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.gWidth{
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+.m_movie{
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m_movie2{
+    width: 32.143333333%;
+    margin: 0 .5% 1%;
+}
+.big{
+    margin: 0 -.5% 1%;
+    font-size: 0;
+}
+.m_2_black{
+    width: 1050px;
+    margin: auto;
+}
+.m_movie2 .content2 {
+    margin: 32px 20px 16px;
+}
+.tit2{
+    font-size: 20px;
+}

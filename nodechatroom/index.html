@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://www.uform.1473.cn"></script>
+    <style lang="">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        :focus {
+            outline: 0
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #b8b8b8;
+            border-radius: 15px;
+        }
+
+
+        .chat_room {
+            width: 700px;
+            height: 595px;
+            border: 1px solid #cacaca;
+            /* border-radius: 4px; */
+            margin: auto;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .chat_room>.list {
+            visibility: hidden;
+            width: 160px;
+            height: 100%;
+            float: left;
+            border-right: 1px solid #e7e7e7;
+        }
+
+        .chat_room .list .list_1 {
+            box-sizing: border-box;
+            padding: 8px;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+        }
+
+        .chat_room .list .on {
+            background: #e8e8e8;
+        }
+
+        .chat_room .list .list_1:hover {
+            background: #e8e8e8;
+        }
+
+        .chat_room .list .img {
+            width: 38px;
+            background: #ddd;
+            float: left;
+            height: 38px;
+            border-radius: 55px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .chat_room .list .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chat_room .list .title {
+            font-size: 14px;
+            text-indent: 9px;
+            color: #353535;
+        }
+
+        .chat_room .list .info {
+            font-size: 12px;
+            color: #8f8f8f;
+            text-indent: 13px;
+            padding-top: 2px;
+        }
+
+        .chat_room>.content {
+            float: right;
+            width: calc(100% - 161px);
+            height: 75%;
+            border-bottom: 1px solid #e6e6e6;
+            overflow: auto;
+            position: absolute;
+            right: 0;
+            background: #fff;
+        }
+
+        .chat_room .input {
+            float: left;
+            width: calc(100% - 161px);
+            height: 25%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .chat_room .input .input_content {
+            width: 100%;
+            height: 66%;
+            padding: 8px;
+            box-sizing: border-box;
+            overflow: overlay;
+            margin-top: 4px;
+            border: 0;
+            display: block;
+            resize: none;
+        }
+
+        .chat_room .input input {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            border: 0;
+            border-radius: 2px;
+            padding: 4px 11px;
+            color: #fff;
+            cursor: pointer;
+            background: rgb(38, 131, 245);
+        }
+
+
+
+
+
+
+        .chat_room .content .me {
+            display: inline-block;
+            padding: 13px 12px;
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+        }
+
+        .chat_room .content .me .img {
+            width: 39px;
+            height: 39px;
+            background: #ddd;
+            border-radius: 55px;
+            float: right;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .chat_room .content .me .img img {
+
+            width: 100%;
+
+            height: 100%;
+        }
+
+        .chat_room .content .me p.name {
+            float: right;
+            margin: -2px 9px 0 0;
+            color: #2d2d2d;
+            font-size: 15px;
+            max-width: 150px;
+            overflow: hidden;
+            word-break: keep-all;
+        }
+
+        .chat_room .content .me p.content {
+            float: right;
+            border: 0;
+            margin: -8px 49px 0 0;
+            width: auto;
+            max-width: 61%;
+            height: auto;
+            text-align: left;
+            word-wrap: break-word;
+            background: rgb(38, 131, 245);
+            border-radius: 9px;
+            box-sizing: border-box;
+            padding: 9px 17px;
+            color: #f4f4f4;
+        }
+
+        .chat_room .content .me p.content span {
+            display: block;
+            clear: both;
+            width: 100%;
+            text-align: right;
+            color: #f4f4f4;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+
+
+
+        .chat_room .content .other {
+            display: inline-block;
+            padding: 13px 12px;
+            box-sizing: border-box;
+            position: relative;
+            width: 100%;
+        }
+
+        .chat_room .content .other .img {
+            width: 39px;
+            height: 39px;
+            background: #ddd;
+            border-radius: 55px;
+            float: left;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .chat_room .content .other .img img {
+
+            width: 100%;
+
+            height: 100%;
+        }
+
+        .chat_room .content .other p.name {
+            float: left;
+            margin: -2px 0px 0 10px;
+            color: #2d2d2d;
+            font-size: 15px;
+            max-width: 150px;
+            overflow: hidden;
+            word-break: keep-all;
+        }
+
+        .chat_room .content .other p.content {
+            float: left;
+            border: 0;
+            margin: -18px 9px 0 49px;
+            width: auto;
+            max-width: 61%;
+            height: auto;
+            text-align: left;
+            word-wrap: break-word;
+            background: rgb(38, 131, 245);
+            border-radius: 9px;
+            box-sizing: border-box;
+            padding: 9px 17px;
+            color: #f4f4f4;
+        }
+
+        .chat_room .content .other p.content span {
+            display: block;
+            clear: both;
+            width: 100%;
+            text-align: left;
+            color: #f4f4f4;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+
+
+
+
+        .setting {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.67);
+        }
+
+        .setting .setting_main {
+            width: 471px;
+            height: 290px;
+            background: #fff;
+            margin: auto;
+            position: relative;
+            top: 20%;
+            border-radius: 7px;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+
+        .setting .setting_main .img {
+            width: 90px;
+            height: 90px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .setting .setting_main .img:hover span {
+            opacity: 1;
+        }
+
+        .setting .setting_main .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .setting .setting_main .img span {
+            font-size: 13px;
+            display: block;
+            color: #2b2929;
+            transition: 0.3s;
+            position: absolute;
+            top: 32px;
+            width: 100%;
+            opacity: 1;
+            text-align: center;
+        }
+
+        .setting .setting_main .info {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .setting .setting_main .info span {
+            margin-right: 10px;
+        }
+
+        .setting .setting_main .info input {
+            width: 150px;
+            height: 25px;
+            border: 1px solid #000;
+            text-indent: 7px;
+        }
+
+        .setting .setting_main .ok {
+            width: 248px;
+            height: 39px;
+            display: block;
+            border: 1px solid #333333;
+            color: #616266;
+            margin: auto;
+            cursor: pointer;
+            background: #fff;
+            margin-top: 20px;
+        }
+
+        .prompt {
+            font-size: 55px;
+            color: #f00;
+            position: absolute;
+            top: -45px;
+            right: 8px;
+        }
+
+
+
+        .chat_room .user_list {
+
+            position: absolute;
+
+            top: -1px;
+
+            right: -154px;
+
+            width: 152px;
+
+            height: 65%;
+
+            box-sizing: border-box;
+
+            /* padding: 5px 10px; */
+            background: #eee;
+        }
+
+        .chat_room .user_list .title {
+
+            padding: 10px 10px;
+        }
+
+        .chat_room .user_list .list {
+
+            width: 100%;
+
+            height: calc(100% - 41px);
+
+            overflow: auto;
+        }
+        .userLabel {
+            width: 99%;
+            height: 45px;
+            line-height: 45px;
+            font-size: 12px;
+            overflow: hidden;
+            border: 1px solid #f1a2a2;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // ajax请求
+        function ajax(methods, url, callback, timeout, data) {
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.open(methods, url, true);
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.timeout = timeout;
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+                    if (callback) {
+                        callback(xmlhttp.status + xmlhttp.responseText);
+                    }
+                }
+            };
+            if (data) {
+                xmlhttp.send(data);
+            } else {
+                xmlhttp.send();
+            }
+        }
+
+        // 生成guid
+        function getGuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+        // 获取cookies
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1
+                    c_end = document.cookie.indexOf(";", c_start)
+                    if (c_end == -1) c_end = document.cookie.length
+                    return unescape(document.cookie.substring(c_start, c_end))
+                }
+            }
+            return ""
+        }
+        // 设置cookies
+        function setCookie(c_name, value, expiredays) {
+            var exdate = new Date()
+            exdate.setDate(exdate.getDate() + expiredays)
+            document.cookie = c_name + "=" + escape(value) +
+                ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        }
+        // 检验cookies
+        function checkCookie(cookie) {
+            var acount = getCookie(cookie)
+            if (acount != null && acount != "") { 
+                return acount
+            }
+            else {
+                return false
+            }
+        }
+        // 轮询
+        function ajaxpost(acount) {
+            ajax("post", 'http://localhost:1347/polling', function (val) {
+
+                if (val !== "0") {
+                    val = JSON.parse(val.split('200')[1])
+                    if (Object.prototype.toString.call(val) === "[object Array]") {
+                        updateUserList(val)
+                    } else {
+                        addDom('other', val, val.send)
+                    }
+                }
+                ajaxpost(acount)
+            }, 25000, acount)
+        }
+        // 发送
+        function send() {
+            if (sendTarget === "" && document.querySelector(".userLabel") !== null) {
+                sendTarget = document.querySelector(".userLabel").innerText
+            }
+            var msg = document.querySelector('.input_content').value
+            if (sendTarget === "" || msg.trim() === "") {
+                return
+            }
+            document.querySelector('.input_content').value = ''
+            var DATE = new Date()
+            var date = DATE.getHours() + ":" + DATE.getMinutes() + ":" + DATE.getSeconds();
+            var message = {
+                send: getCookie('acount'),
+                rece: sendTarget,
+                msg: msg,
+                date: date
+            }
+            ajax("post", 'http://localhost:1347/send', function (val) {
+                console.log(val)
+            }, 0,JSON.stringify(message))
+            addDom('me', message, message.rece)
+        }
+        // 显示发送的消息
+        function addDom(cla, message, id) {
+            var classname = cla;
+            var html = '<div class="' + classname + '">\
+            <p class="content">\
+                '+ message.msg + '\
+                <span class="date">'+ message.date + '</span>\
+            </p></div>';
+            document.getElementById(id).innerHTML += html
+        }
+        // 获取在线用户
+        function getUser() {
+            ajax("get", 'http://localhost:1347/getUser', function () {
+            }, 0)
+        }
+        // 获取未读消息
+        function getUnreadMsg() {
+            var acount = getCookie('acount')
+            ajax("POST", 'http://localhost:1347/getUnread', function (val) {
+                if (val !== "200") {
+                    val = JSON.parse(val.split('200')[1])
+                    val.forEach(function(i) {
+                        addDom('other', i, i.send)
+                    })
+                }
+            }, 0, acount)
+        }
+        // 更新用户列表
+        function updateUserList(userList) {
+            var acount = getCookie('acount')
+            document.querySelectorAll('.list')[1].innerHTML = ''
+            userList.forEach(function(ele) {
+                if (acount != ele) {
+                    var div = document.createElement('div');
+                    div.className = 'userLabel';
+                    div.innerText = ele
+                    document.querySelectorAll('.list')[1].appendChild(div)
+                    if (!document.getElementById(ele)) {
+                        var content = document.createElement('div');
+                        content.className = 'content';
+                        content.id = ele
+                        document.querySelector('.chat_room').insertBefore(content, document.querySelector('#all'))
+                    }
+                    div.onclick = function() {
+                        document.querySelectorAll('div.content').forEach(function(ele) {
+                            ele.style.display = 'none'
+                        })
+                        document.getElementById(ele).style.display = "block"
+                    }
+                }
+            });
+        }
+
+        window.onload = function () {
+            var acount = checkCookie('acount');
+            if (acount) {
+                ajaxpost(acount)
+            } else {
+                var guid = getGuid()
+                setCookie('acount', guid)
+                ajaxpost(guid)
+            }
+            getUser()
+            addClickEvent()
+            getUnreadMsg()
+        }
+        // 设置发送的用户
+        var sendTarget = ''
+        function addClickEvent() {
+            var list = document.querySelectorAll('.list')[1]
+            list.addEventListener('click', function(e) {
+                if (e.target.className === "userLabel") {
+                    sendTarget = e.target.innerText
+                }
+            })
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div class="chat_room">
+        <div class="list">
+            <div class="list_1 on" id="">
+                <div class="img">
+                    <img src="" alt="">
+                </div>
+                <div class="title">公共聊天室</div>
+                <div class="info"></div>
+            </div>
+        </div>
+        <div class="content" id="all"></div>
+        <div class="input">
+            <textarea class="input_content"></textarea>
+            <input type="button" value="发送" onclick="send()">
+        </div>
+        <div class="user_list">
+            <div class="title">用户列表</div>
+            <div class="list">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
